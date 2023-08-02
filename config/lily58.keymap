@@ -25,6 +25,7 @@
             label = "DNS";
             #binding-cells = <0>;
             bindings =
+                <&macro_tap>,
                 <&macro_wait_time 2000>,
                 <&kp LEFT_WIN>,
                 <&macro_wait_time 1>,
@@ -46,8 +47,7 @@
                 <&macro_wait_time 5000>,
                 <&kp LA(F4)>,
                 <&macro_wait_time 100>,
-                <&kp RET &kp RET>,
-                <&macro_release>;
+                <&kp RET &kp RET>;
         };
     };
 
