@@ -10,6 +10,31 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        save {
+            bindings = <&trans>;
+            key-positions = <24 27>;
+        };
+    };
+
+    macros {
+        dns: dns {
+            compatible = "zmk,behavior-macro";
+            label = "DNS";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LEFT_WIN>,
+                <&macro_wait_time 2>,
+                <&kp C &kp M &kp D &kp ENTER>,
+                <&macro_wait_time 2>,
+                <&kp I &kp P &kp C &kp O &kp N &kp F &kp I &kp G &kp SPACE &kp FSLH &kp F &kp L &kp U &kp S &kp H &kp D &kp N &kp S &kp ENTER &kp I &kp P &kp C &kp O &kp N &kp F &kp I &kp G &kp SPACE &kp FSLH &kp R &kp E &kp N &kp E &kp W &kp RET &kp C &kp L &kp E &kp A &kp N &kp M &kp G &kp R &kp RET>,
+                <&macro_wait_time 5>,
+                <&kp LA(F4) &kp RET &kp RET>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -22,7 +47,7 @@
             //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
 
             bindings = <
-   &kp ESC  &kp N1  &kp N2    &kp N3    &kp N4  &kp N5                                &kp N6  &kp N7     &kp N8   &kp N9         &kp N0  &kp TILDE
+   &kp ESC  &kp N1  &kp N2    &kp N3    &kp N4  &kp N5                                &kp N6  &kp N7     &kp N8   &kp N9         &kp N0  &kp GRAVE
    &kp TAB   &kp Q   &kp W     &kp F     &kp P   &kp G                                 &kp J   &kp L      &kp U    &kp Y  &kp SEMICOLON  &kp MINUS
  &kp LCTRL   &kp A   &kp R     &kp S     &kp T   &kp D                                 &kp H   &kp N      &kp E    &kp I          &kp O    &kp SQT
 &kp LSHIFT   &kp Z   &kp X     &kp C     &kp V   &kp B     &kp F5    &kp BACKSPACE     &kp K   &kp M  &kp COMMA  &kp DOT       &kp FSLH    &kp DEL
@@ -41,11 +66,11 @@
             //                     |      |      |      |        |  |       |      |       |       |
 
             bindings = <
-&bt BT_CLR      &bt BT_SEL 0       &bt BT_SEL 1       &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                   &trans     &trans           &trans    &trans    &trans     &trans
+&bt BT_CLR      &bt BT_SEL 0       &bt BT_SEL 1       &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                    &to 3      &none            &none     &none     &none      &none
     &kp F1            &kp F2             &kp F3             &kp F4        &kp F5        &kp F6                                   &kp F7     &kp F8           &kp F9   &kp F10   &kp F11    &kp F12
  &kp GRAVE          &kp EXCL             &kp AT           &kp HASH    &kp DOLLAR     &kp PRCNT                                &kp CARET   &kp AMPS  &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp TILDE
-    &trans  &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG        &trans        &trans  &kp PRINTSCREEN       &trans     &trans  &kp MINUS      &kp KP_PLUS  &kp LBRC  &kp RBRC   &kp PIPE
-                                                            &trans        &trans        &trans        &kp SPACE    &kp ENTER     &trans      &to 0            &to 2
+     &none  &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG         &none         &none  &kp PRINTSCREEN         &dns      &none  &kp MINUS      &kp KP_PLUS  &kp LBRC  &kp RBRC   &kp PIPE
+                                                             &none         &none         &none        &kp SPACE    &kp ENTER      &none      &to 0            &to 2
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -68,6 +93,16 @@
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        layer_3 {
+            bindings = <
+  &kp ESC  &kp N1  &kp N2        &kp N3    &kp N4  &kp N5                           &kp N6     &kp N7     &kp N8   &kp N9    &kp N0  &kp C_AC_SAVE
+  &kp TAB   &kp Q   &kp W         &kp F     &kp P   &kp G                            &kp J      &kp L      &kp U    &kp Y  &kp SEMI      &kp MINUS
+&kp LCTRL   &kp A   &kp R         &kp S     &kp T   &kp D                            &kp H      &kp N      &kp E    &kp I     &kp O        &kp SQT
+&kp LSHFT   &kp Z   &kp X         &kp C     &kp V   &kp B      &none    &kp BSPC     &kp K      &kp M  &kp COMMA  &kp DOT  &kp FSLH        &kp DEL
+                           &kp LEFT_ALT  &kp LEFT  &kp UP  &kp SPACE     &kp RET  &kp DOWN  &kp RIGHT      &to 2
+            >;
         };
     };
 };
