@@ -26,12 +26,13 @@
             #binding-cells = <0>;
             bindings =
                 <&kp LEFT_WIN>,
-                <&macro_wait_time 2>,
+                <&macro_wait_time 2000>,
                 <&kp C &kp M &kp D &kp ENTER>,
-                <&macro_wait_time 2>,
+                <&macro_wait_time 2000>,
                 <&kp I &kp P &kp C &kp O &kp N &kp F &kp I &kp G &kp SPACE &kp FSLH &kp F &kp L &kp U &kp S &kp H &kp D &kp N &kp S &kp ENTER &kp I &kp P &kp C &kp O &kp N &kp F &kp I &kp G &kp SPACE &kp FSLH &kp R &kp E &kp N &kp E &kp W &kp RET &kp C &kp L &kp E &kp A &kp N &kp M &kp G &kp R &kp RET>,
-                <&macro_wait_time 5>,
-                <&kp LA(F4) &kp RET &kp RET>;
+                <&macro_wait_time 5000>,
+                <&kp LA(F4) &kp RET &kp RET>,
+                <&macro_release>;
         };
     };
 
